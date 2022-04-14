@@ -31,3 +31,13 @@ window.addEventListener("click", (e) => {
     navMenu.classList.add("hidden");
   }
 });
+
+// Dark Mode toggle
+const darkToggle = document.querySelector("#dark-toggle");
+const html = document.querySelector("html");
+
+darkToggle.addEventListener("click", () => {
+  darkToggle.checked
+    ? html.classList.add("dark")
+    : html.classList.remove("dark");
+});
