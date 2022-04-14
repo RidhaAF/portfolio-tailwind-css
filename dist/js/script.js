@@ -23,3 +23,11 @@ hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("hamburger-active");
   navMenu.classList.toggle("hidden");
 });
+
+// CLick to dismiss outside hamburger menu
+window.addEventListener("click", (e) => {
+  if (e.target.id != "hamburger" && e.target.id != "nav-menu") {
+    hamburger.classList.remove("hamburger-active");
+    navMenu.classList.add("hidden");
+  }
+});
