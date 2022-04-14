@@ -37,7 +37,22 @@ const darkToggle = document.querySelector("#dark-toggle");
 const html = document.querySelector("html");
 
 darkToggle.addEventListener("click", () => {
-  darkToggle.checked
-    ? html.classList.add("dark")
-    : html.classList.remove("dark");
+  if (darkToggle.checked) {
+    html.classList.add("dark");
+    localStorage.theme = "dark";
+  } else {
+    html.classList.remove("dark");
+    localStorage.theme = "light";
+  }
 });
+
+// Move toggle position when theme is changed
+if (
+  localStorage.theme === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  darkToggle.checked = true;
+} else {
+  darkToggle.checked = false;
+}
